@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Falcan · Geleceğini Aydınlat</title>
+    <meta
+      name="description"
+      content="Falcan, kahve, tarot, el falı ve daha fazlasını tek uygulamada sunan KVKK uyumlu mistik deneyim platformudur. Mini oyunlarla altın kazan, streaklerle rozetleri tamamla."
+    />
+    <style>
+      :root {
+        color-scheme: only light;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: radial-gradient(circle at 20% 0%, #1a1d52, #07091e 55%);
+        color: #f5f7ff;
+        line-height: 1.7;
+        position: relative;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg opacity='0.08' xml:space='preserve' viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3Ccircle cx='120' cy='220' r='1.8'/%3E%3Ccircle cx='420' cy='60' r='2.5'/%3E%3Ccircle cx='520' cy='340' r='1.4'/%3E%3Ccircle cx='260' cy='460' r='2.2'/%3E%3Ccircle cx='540' cy='520' r='1.8'/%3E%3C/g%3E%3C/svg%3E")
+          center/360px repeat;
+        pointer-events: none;
+        z-index: -1;
+      }
+      header {
+        text-align: center;
+        padding: clamp(3.5rem, 6vw, 6.5rem) 1.5rem 2.5rem;
+      }
+      header img {
+        width: clamp(90px, 12vw, 140px);
+        filter: drop-shadow(0 12px 35px rgba(35, 27, 84, 0.45));
+      }
+      header h1 {
+        margin: 1.75rem 0 0.75rem;
+        font-size: clamp(2.6rem, 6vw, 4.2rem);
+        color: #f7d37c;
+        letter-spacing: 0.01em;
+      }
+      header p {
+        margin: 0 auto;
+        max-width: 640px;
+        color: #d0d7ff;
+        font-size: clamp(1.05rem, 2.6vw, 1.2rem);
+      }
+      .cta-row {
+        margin-top: 2.25rem;
+        display: inline-flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .cta {
+        padding: 0.95rem 1.8rem;
+        border-radius: 999px;
+        border: 1px solid rgba(247, 211, 124, 0.55);
+        background: linear-gradient(90deg, #f7d37c, #f0b35f);
+        color: #2b1a06;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 16px 40px rgba(247, 211, 124, 0.35);
+      }
+      .cta.secondary {
+        background: rgba(83, 100, 255, 0.12);
+        border-color: rgba(136, 149, 255, 0.4);
+        color: #d3dcff;
+        box-shadow: 0 18px 40px rgba(34, 42, 114, 0.45);
+      }
+      main {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 clamp(1.5rem, 4vw, 3rem) 4rem;
+        display: grid;
+        gap: clamp(2rem, 4vw, 3rem);
+      }
+      section {
+        background: rgba(21, 26, 66, 0.92);
+        border-radius: 28px;
+        border: 1px solid rgba(124, 135, 255, 0.25);
+        box-shadow: 0 24px 70px rgba(6, 8, 30, 0.55);
+        padding: clamp(1.8rem, 3.5vw, 3rem);
+      }
+      h2 {
+        margin-top: 0;
+        color: #f7d37c;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+      }
+      p,
+      li {
+        color: #e5e8ff;
+        font-size: 1.03rem;
+      }
+      ul {
+        padding-left: 1.25rem;
+      }
+      .features-grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+      .feature-card {
+        background: rgba(41, 47, 105, 0.55);
+        border-radius: 22px;
+        border: 1px solid rgba(120, 132, 255, 0.3);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .feature-card img {
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+        filter: drop-shadow(0 12px 20px rgba(15, 18, 58, 0.4));
+      }
+      .screenshots {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+      .screenshots figure {
+        margin: 0;
+        background: linear-gradient(160deg, rgba(101, 110, 255, 0.15), rgba(22, 25, 68, 0.85));
+        border-radius: 26px;
+        border: 1px solid rgba(120, 132, 255, 0.22);
+        padding: 1.5rem;
+        box-shadow: 0 20px 50px rgba(5, 7, 28, 0.55);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .screenshots img {
+        width: 100%;
+        border-radius: 20px;
+        background: rgba(9, 12, 36, 0.65);
+        padding: 1rem;
+        object-fit: contain;
+      }
+      .screenshots figcaption {
+        color: #d6dbff;
+        font-size: 0.98rem;
+      }
+      .mini-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+      }
+      .stat-card {
+        flex: 1 1 200px;
+        background: rgba(88, 98, 255, 0.15);
+        border-radius: 18px;
+        padding: 1.2rem 1.4rem;
+        border: 1px solid rgba(125, 136, 255, 0.35);
+      }
+      .stat-card strong {
+        display: block;
+        font-size: 1.35rem;
+        color: #f8dfa2;
+      }
+      .cta-banner {
+        text-align: center;
+        padding: clamp(2rem, 4vw, 3rem);
+        background: linear-gradient(120deg, rgba(247, 211, 124, 0.18), rgba(92, 106, 255, 0.25));
+        border-radius: 24px;
+        border: 1px solid rgba(247, 211, 124, 0.45);
+      }
+      footer {
+        text-align: center;
+        color: #9ba6ff;
+        font-size: 0.95rem;
+        margin-bottom: 2.5rem;
+      }
+      @media (max-width: 600px) {
+        header img {
+          width: 88px;
+        }
+        .cta-row {
+          flex-direction: column;
+          width: 100%;
+        }
+        .cta {
+          width: 100%;
+          justify-content: center;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="./assets/falcan-logo-new.png" alt="Falcan logosu" width="128" height="128" />
+      <h1>Falcan ile Geleceğini Aydınlat ✨</h1>
+      <p>
+        Kahve, tarot, el falı ve daha fazlasını tek bir mistik deneyimde birleştiren Falcan; canlı falcılar,
+        mini oyunlar, rozet sistemi ve KVKK uyumlu altyapısıyla kişisel yolculuğunu renklendirir.
+      </p>
+      <div class="cta-row">
+        <a class="cta" href="https://falcan.app" target="_blank" rel="noopener noreferrer">Falcan’ı İndir</a>
+        <a class="cta secondary" href="./privacy-policy/">Gizlilik Politikası</a>
+        <a class="cta secondary" href="./account-deletion/">Hesap Silme Rehberi</a>
+      </div>
+    </header>
+    <main>
+      <section>
+        <h2>Falcan’ı Öne Çıkaran Özellikler</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <img src="./assets/coffee-fortune.png" alt="Kahve falı" />
+            <h3>Kahve Falı &amp; 7 Mistisizm Türü</h3>
+            <p>
+              Kahve, tarot, el, yıldız, çift, rüya ve olumlama falı. Uzman falcı seviyeleriyle kişiselleştirilmiş
+              yorumlar cebinde.
+            </p>
+          </div>
+          <div class="feature-card">
+            <img src="./assets/tarot-fortune.png" alt="Tarot falı" />
+            <h3>Gerçek Zamanlı Fal Falcıları</h3>
+            <p>
+              5 seviyeli falcı ekosistemi ve canlı bildirimler sayesinde en uygun falcıyı seç, sıranı takip et,
+              detaylı rapor al.
+            </p>
+          </div>
+          <div class="feature-card">
+            <img src="./assets/master-teller.png" alt="Fal ustası" />
+            <h3>Rozet ve Streak Sistemi</h3>
+            <p>
+              37 rozet, günlük streak, liderlik tablosu ve mini görevlerle motivasyonun hep yüksek kalsın.
+            </p>
+          </div>
+        </div>
+        <div class="mini-stats">
+          <div class="stat-card">
+            <strong>50.000+</strong>
+            Mutlu kullanıcı &amp; artan puan ortalaması
+          </div>
+          <div class="stat-card">
+            <strong>200.000+</strong>
+            Yorumlanmış fal, detaylı rapor ve hatıra albümü
+          </div>
+          <div class="stat-card">
+            <strong>37</strong>
+            Rozet, 3 mini oyun ve günlük altın bonusları
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Uygulama İçi Görüntüler</h2>
+        <div class="screenshots">
+          <figure>
+            <img src="./assets/coffee-fortune.png" alt="Fal seçimi ekranı" />
+            <figcaption>
+              Fal türü kartları sayesinde kahve, tarot, el falı ve daha fazlasını tek dokunuşla seç.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="./assets/master-teller.png" alt="Falcı profili" />
+            <figcaption>
+              Falcı profillerini incele, seviyelerini ve yorum puanlarını gör, favori falcını seç.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="./assets/tarot-fortune.png" alt="Mini oyunlar" />
+            <figcaption>
+              Mini oyunlarla altın kazan, rozetlerin kilidini aç ve günlük streak zincirini güçlendir.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section>
+        <h2>Güvenlik ve Uyumluluk</h2>
+        <p>
+          Falcan, KVKK ve GDPR gerekliliklerine uygun çalışır. Şeffaf veri işleme politikamız, hızlı hesap silme
+          süreci ve Google Play API bütünleşmesi ile güvenli bir deneyim sunuyoruz. Tüm veri silme ve hesap kapatma
+          talepleri 30 gün içerisinde tamamlanır.
+        </p>
+        <ul>
+          <li>KVKK uyumlu gizlilik politikası ve veri silme rehberi</li>
+          <li>Google Play hesap/veri silme URL’leri ve otomatik takip</li>
+          <li>Firebase, AdMob ve Supabase altyapısı üzerinde şifreli veri saklama</li>
+        </ul>
+      </section>
+
+      <section class="cta-banner">
+        <h2>Falcan’la mistik yolculuğa şimdi başla</h2>
+        <p>
+          Fal yorumları, mini oyunlar, günlük bonuslar ve özelleştirilmiş motivasyonlarla geleceğini aydınlat.
+          Uygulamayı indir, kendi fal hikâyeni yazmaya başla.
+        </p>
+        <div class="cta-row">
+          <a class="cta" href="https://falcan.app" target="_blank" rel="noopener noreferrer">App Store &amp; Play Store</a>
+          <a class="cta secondary" href="mailto:destek@falcan.app">Bize Ulaşın</a>
+        </div>
+      </section>
+    </main>
+    <footer>© 2025 Falcan Teknoloji AŞ · Tüm hakları saklıdır.</footer>
+  </body>
+</html>
+
